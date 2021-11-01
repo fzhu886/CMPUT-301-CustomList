@@ -1,5 +1,7 @@
 package com.example.simpleparadox.listycity;
 
+import static org.testng.Assert.assertEquals;
+
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +11,10 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.widget.TextViewCompat;
 
+import org.junit.Before;
+import org.testng.annotations.Test;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
@@ -47,4 +52,34 @@ public class CustomList extends ArrayAdapter<City> {
         return view;
 
     }
+
+    /**
+     * this function will get the size of list
+     * @return
+     */
+    public int getCount(){
+        return cities.size();
+    }
+
+    /**
+     * this function will add a city object into the list
+     * @param city
+     */
+    public void addCity(City city) {
+        return;
+    }
+
+    private CustomList list;
+    @Before
+    public void createList() {
+        list = new CustomList(null, new ArrayList<City>());
+    }
+
+    @Test
+    public void addCityTest() {
+        int listSize = list.getCount();
+        list.addCity(new City("Halifax", "NS"));
+        assertEquals(list.getCount(), listSize+1);
+    }
 }
+
