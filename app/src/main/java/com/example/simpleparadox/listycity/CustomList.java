@@ -14,7 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.core.widget.TextViewCompat;
 
 import org.junit.Before;
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
 import org.w3c.dom.Text;
 
 import java.util.ArrayList;
